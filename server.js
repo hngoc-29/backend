@@ -32,7 +32,7 @@ app.get('/music', (req, res) => {
 app.post('/music', (req, res) => {
     const data = readData();
     const newItem = req.body;
-    newItem.id = data.length ? Math.max(data.map(item => item.id)) + 1 : 1;
+    newItem.id = data.length + 1;
     data.push(newItem);
     writeData(data);
     res.status(201).json(newItem);
